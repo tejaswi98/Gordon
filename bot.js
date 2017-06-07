@@ -20,7 +20,7 @@ var client = new irc.Client('irc.freenode.net', username, {
 
 //Listen for any incoming messages on the channel
 client.addListener('message', function (from, to, message) {
-    console.log(from + ' @ ' + to.substring(1) + '=>  ' + message);  // Log the message in the console. Need substring to exculde the '#'
+    console.log('[GORDON] '+ from + ' @ ' + to.substring(1) + '=>  ' + message);  // Log the message in the console. Need substring to exculde the '#'
 });
 
 //Basics on I/O in the interface. (Need this for typing in the console).
@@ -39,7 +39,7 @@ rl.on('line', (input) => {
   //send the message to the chatserver when the console event is emmitted
   client.say(channelName, inputlogger(input));
   //Log your message in the console.
-  console.log(username + '(you) @ ' + channelName.substring(1) + ' => ' + input);
+  console.log('[GORDON] '+ username + '(you) @ ' + channelName.substring(1) + ' => ' + input);
 });
 
 //TO-DO: Add ping sound for new message received.
